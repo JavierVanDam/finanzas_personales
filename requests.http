@@ -1,0 +1,114 @@
+###
+POST http://127.0.0.1:8000/api/ingresos/ HTTP/1.1
+content-type: application/json
+
+{
+"fecha": "2019-08-01",
+"monto": 111,
+"categoria": 4,
+"usuario": 2
+}
+
+###
+
+GET http://127.0.0.1:8000/api/ingresos/ HTTP/1.1
+Authorization: Token 407e2d57b7f54004eb794cfd5606155cd6bd8ff6
+
+
+###
+
+GET http://127.0.0.1:8000/api/cuentas/ HTTP/1.1
+Authorization: Token f2581937d64fa75f96419cd93aad7b1626fd7052
+
+
+###
+
+POST http://127.0.0.1:8000/api/cuentas/ HTTP/1.1
+content-type: application/json
+
+{
+  "nombre": "TC NACION - 2",
+  "tipo_cuenta": "INGRESOS",
+  "permite_cuotas": false
+}
+
+###
+
+DELETE http://127.0.0.1:8000/api/cuentas/34/ HTTP/1.1
+content-type: application/json
+
+{
+  "nombre": "TC NACION - 2",
+  "tipo_cuenta": "INGRESOS",
+  "permite_cuotas": false
+}
+
+
+###
+
+PUT http://127.0.0.1:8000/api/cuentas/3/ HTTP/1.1
+content-type: application/json
+
+{
+  "nombre": "CHICHE",
+  "permite_cuotas": false,
+  "tipo_cuenta": "INGRESOS"
+}
+
+
+### para un solo campo: patch
+
+PATCH  http://127.0.0.1:8000/api/cuentas/3/ HTTP/1.1
+content-type: application/json
+
+{
+  "nombre": "MASTERCARD NACION"
+}
+
+###
+
+POST http://127.0.0.1:8000/api/exclusiones/ HTTP/1.1
+content-type: application/json
+
+{
+  "fh_desde": "2022-02-08",
+  "fh_hasta": null,
+  "especie": 30,
+  "motivo": 2
+}
+
+
+###
+# POST  http://127.0.0.1:8000/api/rest-auth/login/ HTTP/1.1
+# POST  http://127.0.0.1:8000/api/v1/dj-rest-auth/login/ HTTP/1.1
+POST http://127.0.0.1:8000/api/login/ HTTP/1.1
+content-type: application/json
+
+{
+  "username": "javier",
+  "password": "pass"
+}
+
+###
+
+GET http://127.0.0.1:8000/api/gastos/ HTTP/1.1
+Authorization: Token 9a488c8786e0cd95dc71de18319fe2f7b69a76ee
+
+###
+
+POST http://127.0.0.1:8000/api/gastos/ HTTP/1.1
+Authorization: Token 9a488c8786e0cd95dc71de18319fe2f7b69a76ee
+content-type: application/json
+
+
+{
+    "fecha": "2019-01-08",
+    "monto": 3214,
+    "cuotas": 1,
+    "comrprobante": null,
+    "categoria": 1,
+    "forma_pago": 1,
+    "usuario": 1
+}
+
+
